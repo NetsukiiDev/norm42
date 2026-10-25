@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+clear
+
+if ! command -v norminette >/dev/null 2>&1; then
+    printf 'norm42: norminette was not found in PATH.\n' >&2
+    exit 127
+fi
+
+if (( $# == 0 )); then
+    set -- .
+fi
+
+exec norminette -R CheckForbiddenSourceHeader "$@"
