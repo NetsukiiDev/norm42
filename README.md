@@ -33,10 +33,20 @@ This is an independent helper, not an official 42 or Moulinette project. It does
 | Installation | Standard Unix tools: `mkdir`, `dirname`, `cmp`, `mktemp`, `cp`, `install`, `mv`, `rm` |
 | Calling shell | Bash, Zsh, Fish or another shell that can run executables |
 | Desktop | No desktop dependencies; Hyprland, GNOME and KDE settings are untouched |
-| Platforms | Linux; macOS compatibility is covered by the configured CI matrix, subject to its current results |
-| Windows | Use WSL; native Windows is not supported |
 
-Locally verified on Arch Linux with Norminette 3.3.54. CI tests the wrapper and installer on Ubuntu and macOS using a mock checker; it does not certify every Norminette release.
+### Operating systems
+
+| Operating system | Support and verification |
+| --- | --- |
+| Linux — Arch, Ubuntu, Debian, Fedora and similar distributions | Supported when the requirements above are available. Locally verified on Arch Linux; automated tests passed on Ubuntu. Other distributions have not been individually tested. |
+| macOS | Supported when the requirements above are available. Automated tests passed on the GitHub-hosted macOS runner. Intel and Apple Silicon are expected to work, but CI does not separately verify both architectures. |
+| Windows with WSL | Expected to work inside a Linux distribution with the required dependencies; not directly tested on WSL. Install and run from the Linux shell. |
+| Native Windows — PowerShell or Command Prompt | Not supported. Use WSL instead. Git Bash and other compatibility layers are not tested or supported. |
+| FreeBSD, OpenBSD and other BSD systems | Potentially compatible with Bash and the required Unix tools installed; not tested or officially supported. |
+
+The calling shell can be Bash, Zsh or Fish; the script itself always runs with Bash. No particular desktop environment or window manager is required. Installing the wrapper does not require sudo; its dependencies must be installed separately and available in `PATH`.
+
+Locally verified with Norminette 3.3.54. CI tests the wrapper and installer using a mock checker; it does not certify every Norminette release, OS version or hardware architecture. See the [CI results](https://github.com/NetsukiiDev/norm42/actions/workflows/ci.yml) for the latest status. Norminette itself must also support your chosen platform.
 
 ## Install without sudo
 
